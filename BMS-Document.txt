@@ -660,9 +660,9 @@ Open Port No. 9090 for Monitoring Server VM and Access Prometheus
 
 If it doesn't work, in the web link of browser, remove 's' in 'https'. Keep only 'http' and now you will be able to see.
 You can see the Prometheus console.
-Click on 'Status' dropdown ---> Click on 'Targets' ---> You can see 'Prometheus (1/1 up)' ----> It scrapes itself every 15 seconds by default.
+Click on 'Status' dropdown ---> Click on 'Targets'(target means servers which we are going to monitor) ---> You can see 'Prometheus (1/1 up)' ----> It scrapes itself every 15 seconds by default.
 
-10. Install Node Exporter (Execute in Monitoring Server VM)
+10. Install Node Exporter (Execute in Monitoring Server VM- throgh npde exporter we can monitor)
 You are in ~ path now
 
 Create a system user for Node Exporter and download Node Exporter:
@@ -723,12 +723,12 @@ The path of prometheus.yml is; cd /etc/prometheus/ ----> ls -l ----> You can see
 
   - job_name: 'node_exporter'
     static_configs:
-      - targets: ['<MonitoringVMip>:9100']
+      - targets: ['18.212.93.145:9100']
 
   - job_name: 'jenkins'
     metrics_path: '/prometheus'
     static_configs:
-      - targets: ['<your-jenkins-ip>:<your-jenkins-port>']
+      - targets: ['54.237.230.212:8080']
 
 
 
